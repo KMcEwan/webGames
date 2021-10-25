@@ -1,0 +1,187 @@
+html
+{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    
+}
+
+
+.header-image
+{
+    
+    background-image: url("assets/topBackground.png");  
+    min-height: 500px;   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+  }
+
+  .nav-container 
+  {
+    position: absolute;
+    margin: 20px;
+    width: 90%;
+   
+  }
+  
+
+  .navbar
+   {
+    overflow: hidden;
+    float: right; 
+    display: flex;
+  }
+
+  .game-text
+  {
+    color: white;
+    position:absolute;
+    top: 60%;
+    right: 5%;
+    font-size: 2em;
+  }
+
+.about-header
+{
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: 20%;
+    background-color: rgb(43, 44, 46);
+}
+
+#aboutTitle
+{
+  color: rgba(50,104,214,255);
+}
+
+#about-text
+{
+    color: white;
+    width: 50%;
+    margin: 2%;
+    margin-left: 0%;
+    margin-right: 0%;
+    padding-left: 10%;
+}
+#about-image
+{   
+  margin-top: 10%;  
+  border-radius: 50%;
+  margin-left: 0%;
+  margin-left: 30%;
+  padding-left: 0%;
+}
+
+
+ .character-header
+{
+
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: 20%;
+    background-color: rgb(199, 199, 199);
+}
+  
+
+ #character-image
+ {   
+   margin-top: 10%;
+   margin-right: 0%;
+   border-radius: 50%;
+   margin-left: 60%;
+ }
+
+ #characterTitle
+{
+  color: rgba(50,104,214,255);
+}
+
+#character-text
+{
+    color:rgb(43, 44, 46);
+    width: 50%;
+    margin: 2%;
+    margin-left: 0%;
+    margin-right: 0%;
+    padding-left: 15%;
+}
+
+.screenshots-grid
+{
+  box-sizing: border-box;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 300px;
+
+}
+
+.screenshots-grid > img 
+{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+
+
+  /* Navbar links */
+  .navbar a 
+  {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+  }
+  
+  .navbar a:hover 
+  {
+    background-color: #ddd;
+    color: black;
+  }
+
+
+ @media (max-width: 500px)
+{
+    h1 
+    {
+        font-size:  0.5em;
+    }
+    .navbar
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-container 
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #about-image
+    {
+      display: none;
+    } 
+
+    .screenshots-grid
+    {
+      grid-template-columns: repeat(1, 1fr);
+      grid-auto-rows: 100px;
+    }
+}
+
+ @media (max-width: 850px) and (min-width: 500px)
+{
+  .screenshots-grid
+  {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+}
+

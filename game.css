@@ -1,0 +1,77 @@
+body
+{
+    background-color: black;
+}
+
+.navbar
+   {
+    overflow: hidden;
+    float: right; 
+    display: flex;
+  }
+
+
+.navbar a 
+{
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.navbar a:hover 
+{
+  background-color: #ddd;
+  color: black;
+}
+
+#controls
+{
+    color: white;
+}
+
+.controlContainer
+{
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: 20%;
+    background-color: rgb(43, 44, 46);
+}
+
+#controls
+{
+    color: white;
+    width: 70%;
+    margin: 2%;
+    margin-left: 0%;
+    margin-right: 0%;
+    padding-left: 10%;
+}
+
+#game
+{   
+    padding-top: 10%;
+}
+
+@media (max-width: 500px)
+{
+    h1 
+    {
+        font-size:  0.5em;
+    }
+    .navbar
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-container 
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
