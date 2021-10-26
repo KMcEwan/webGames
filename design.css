@@ -3,6 +3,23 @@ body
     background-color: black;
 }
 
+.header
+{    
+    background-color: black;  
+    min-height: 100px;   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+  }
+.nav-container 
+{
+  position: absolute;
+  margin: 20px;
+  width: 90%;
+ 
+}
 .navbar
    {
     overflow: hidden;

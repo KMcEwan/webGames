@@ -1,62 +1,118 @@
 html
 {
     font-family: 'Courier New', Courier, monospace;
-    background-color: black;
-    
+    background-color: black;    
 }
 
-
+/* Image header from about page*/
 .header-image
+{    
+  background-image: url("assets/topBackground.png");  
+  min-height: 500px;   
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+ }
+/* Conntainer / banner which holds the nav bar */
+.nav-container 
 {
-    
-    background-image: url("assets/topBackground.png");  
-    min-height: 500px;   
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    width: 100%;
-  }
+  position: absolute;
+  margin: 20px;
+  width: 90%;
+}  
 
-  .nav-container 
-  {
-    position: absolute;
-    margin: 20px;
-    width: 90%;
-   
-  }
+.navbar
+{
+  overflow: hidden;
+  float: right; 
+  display: flex;
+}
+
+.navbar a 
+{
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
   
+.navbar a:hover 
+{
+background-color: #ddd;
+color: black;
+}
 
-  .navbar
-   {
-    overflow: hidden;
-    float: right; 
-    display: flex;
-  }
+.burger-menu
+{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
 
-  .game-text
-  {
-    color: white;
-    position:absolute;
-    top: 60%;
-    right: 5%;
-    font-size: 2em;
-  }
+.burger-menu .bar
+{    
+    justify-content: space-between;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+}
 
+.back-to-top
+{
+ 
+}
+
+.button-to-top
+{
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0,212,255,0);
+  border-color: rgb(216, 56, 181);
+  bottom: 40px;
+  left:50px;
+  border-radius: 50%;
+  color: rgb(216, 56, 181);
+  z-index:50;
+}
+
+/* Text for the game name and type*/
+.game-text
+{
+  color: white;
+  position:absolute;
+  top: 60%;
+  right: 5%;
+  font-size: 2em;
+}
+
+/* The about section container/header */
 .about-header
 {
-    position: relative;
-    display: inline-flex;
-    width: 100%;
-    height: 20%;
-    background-color: rgb(43, 44, 46);
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  height: 20%;
+  /*background-color: rgb(43, 44, 46);*/
+  background: linear-gradient(180deg, rgba(2,0,36,1) 20%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
-
+/* About section title */
 #aboutTitle
 {
   color: rgba(50,104,214,255);
 }
-
+/* Text for the about section*/
 #about-text
 {
     color: white;
@@ -66,6 +122,7 @@ html
     margin-right: 0%;
     padding-left: 10%;
 }
+/* The about image - currently a chracter image */
 #about-image
 {   
   margin-top: 10%;  
@@ -74,7 +131,6 @@ html
   margin-left: 30%;
   padding-left: 0%;
 }
-
 
  .character-header
 {
@@ -109,7 +165,7 @@ html
     margin-right: 0%;
     padding-left: 15%;
 }
-
+/* Screen shot section */
 .screenshots-grid
 {
   box-sizing: border-box;
@@ -119,33 +175,13 @@ html
   grid-auto-rows: 300px;
 
 }
-
+/* Individual image of screenshot section */
 .screenshots-grid > img 
 {
   width:100%;
   height:100%;
   object-fit: cover;
 }
-
-
-  /* Navbar links */
-  .navbar a 
-  {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 1.2em;
-    text-transform: uppercase;
-  }
-  
-  .navbar a:hover 
-  {
-    background-color: #ddd;
-    color: black;
-  }
-
 
  @media (max-width: 500px)
 {
@@ -174,6 +210,39 @@ html
       grid-template-columns: repeat(1, 1fr);
       grid-auto-rows: 100px;
     }
+
+    .navbar
+    {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding-top: 10%;
+        padding-right: 0%;
+    }
+    .nav-container 
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .burger-menu
+    {
+        display: flex;
+    }
+
+    .navbar.active
+    {
+        display: flex;
+    }
+
+    .nav-container 
+    {   
+        position: absolute;
+        margin: 20px;
+        width: 90%;
+        z-index: 50; 
+        
+    }  
 }
 
  @media (max-width: 850px) and (min-width: 500px)
@@ -183,5 +252,7 @@ html
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 200px;
   }
+ 
+
 }
 
