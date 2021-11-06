@@ -15,6 +15,7 @@ html
   position: relative;
   width: 100%;
  }
+
 /* Conntainer / banner which holds the nav bar */
 .nav-container 
 {
@@ -105,7 +106,7 @@ color: black;
   background: linear-gradient(180deg, rgba(2,0,36,1) 20%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 /* About section title */
-#aboutTitle
+#about-Title
 {
   color: rgb(57, 140, 207);
   text-shadow: 0.5px 0.5px rgb(72, 0, 139);
@@ -119,15 +120,19 @@ color: black;
     margin-left: 0%;
     margin-right: 0%;
     padding-left: 10%;
+    font-size: 20px;
 }
 /* The about image - currently a chracter image */
 #about-image
 {   
   margin-top: 10%;  
+  margin-bottom: 10%;
   border-radius: 50%;
   margin-left: 0%;
   margin-left: 30%;
   padding-left: 0%;
+  height: 300px;
+  width: 300px;
 }
 
  .character-header
@@ -252,6 +257,21 @@ color: black;
   }  
 }
 
+@media (max-width: 1050px) and (min-width: 850px)
+{
+  #about-image
+  {   
+    margin-top: 50%;  
+    margin-bottom: 10%;
+    border-radius: 50%;
+    margin-left: 0%;
+    margin-left: 30%;
+    padding-left: 0%;
+    height: 200px;
+    width: 200px;
+  }
+}
+
  @media (max-width: 850px) and (min-width: 550px)
 {
   .screenshots-grid
@@ -274,6 +294,18 @@ color: black;
     position: relative;
     width: 100%;
   }  
+
+  #about-image
+  {     
+    margin-top: 100%;  
+    margin-bottom: 10%;
+    border-radius: 50%;
+    margin-left: 0%;
+    margin-left: 30%;
+    padding-left: 0%;
+    height: 150px;
+    width: 150px;
+  }
 }
 
 @media (max-width: 350px)
