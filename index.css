@@ -7,11 +7,11 @@ html
 /* Image header from about page*/
 .header-image
 {    
-  background-image: url("assets/topBackground.png");  
+  background-image: url("assets/header4.png");  
   min-height: 500px;   
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   position: relative;
   width: 100%;
  }
@@ -39,6 +39,7 @@ html
   text-decoration: none;
   font-size: 1.2em;
   text-transform: uppercase;
+  text-shadow: 2px 2px rgba(2,0,36,1);
 }
   
 .navbar a:hover 
@@ -68,11 +69,6 @@ color: black;
     border-radius: 10px;
 }
 
-.back-to-top
-{
- 
-}
-
 .button-to-top
 {
   position: fixed;
@@ -88,13 +84,15 @@ color: black;
 }
 
 /* Text for the game name and type*/
-.game-text
+.header-text-about-game
 {
   color: white;
   position:absolute;
   top: 60%;
   right: 5%;
   font-size: 2em;
+  text-shadow: 2px 2px rgba(2,0,36,1);
+
 }
 
 /* The about section container/header */
@@ -104,13 +102,13 @@ color: black;
   display: inline-flex;
   width: 100%;
   height: 20%;
-  /*background-color: rgb(43, 44, 46);*/
   background: linear-gradient(180deg, rgba(2,0,36,1) 20%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 /* About section title */
 #aboutTitle
 {
-  color: rgba(50,104,214,255);
+  color: rgb(57, 140, 207);
+  text-shadow: 0.5px 0.5px rgb(72, 0, 139);
 }
 /* Text for the about section*/
 #about-text
@@ -183,69 +181,78 @@ color: black;
   object-fit: cover;
 }
 
- @media (max-width: 500px)
+ @media (max-width: 550px) and (min-width: 350px)
 {
-    h1 
-    {
-        font-size:  0.5em;
-    }
-    .navbar
-    {
-        flex-direction: column;
-        align-items: center;
-    }
-    .nav-container 
-    {
-        flex-direction: column;
-        align-items: center;
-    }
+  .header-image
+  {
+    min-height: 300px;   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    width: 100%;
+  }
+  h1 
+  {
+      font-size:  0.7em;
+  }
 
-    #about-image
-    {
-      display: none;
-    } 
+  .navbar
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-container 
+  {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .screenshots-grid
-    {
-      grid-template-columns: repeat(1, 1fr);
-      grid-auto-rows: 100px;
-    }
+  #about-image
+  {
+    display: none;
+  } 
 
-    .navbar
-    {
-        flex-direction: column;
-        align-items: center;
-        display: none;
-        padding-top: 10%;
-        padding-right: 0%;
-    }
-    .nav-container 
-    {
-        flex-direction: column;
-        align-items: center;
-    }
+  .screenshots-grid
+  {
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 100px;
+  }
 
-    .burger-menu
-    {
-        display: flex;
-    }
+  .navbar
+  {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding-top: 10%;
+    padding-right: 0%;
+  }
+  .nav-container 
+  {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .navbar.active
-    {
-        display: flex;
-    }
+  .burger-menu
+  {
+    display: flex;
+  }
 
-    .nav-container 
-    {   
-        position: absolute;
-        margin: 20px;
-        width: 90%;
-        z-index: 50; 
-        
-    }  
+  .navbar.active
+  {
+    display: flex;
+  }
+
+  .nav-container 
+  {   
+    position: absolute;
+    margin: 20px;
+    width: 90%;
+    z-index: 50; 
+  }  
 }
 
- @media (max-width: 850px) and (min-width: 500px)
+ @media (max-width: 850px) and (min-width: 550px)
 {
   .screenshots-grid
   {
@@ -253,6 +260,81 @@ color: black;
     grid-auto-rows: 200px;
   }
  
+  h1 
+  {
+      font-size:  1.0em;
+  }
 
+  .header-image
+  {
+    min-height: 400px;   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    width: 100%;
+  }  
 }
+
+@media (max-width: 350px)
+  {
+    h1 
+    {
+      font-size:  0.5em;
+    }
+
+    #about-image
+    {
+      display: none;
+    } 
+  
+    .header-image
+  {
+    min-height: 200px;   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    width: 100%;
+  }  
+
+  .screenshots-grid
+  {
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 100px;
+  }
+
+  .navbar
+  {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding-top: 10%;
+    padding-right: 0%;
+  }
+  .nav-container 
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .burger-menu
+  {
+    display: flex;
+  }
+
+  .navbar.active
+  {
+    display: flex;
+  }
+
+  .nav-container 
+  {   
+    position: absolute;
+    margin: 20px;
+    width: 90%;
+    z-index: 50; 
+  }  
+
+  }
 
