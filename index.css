@@ -186,7 +186,7 @@ color: black;
   object-fit: cover;
 }
 
- @media (max-width: 550px) and (min-width: 350px)
+ @media (max-width: 650px) and (min-width: 350px)
 {
   .header-image
   {
@@ -272,7 +272,7 @@ color: black;
   }
 }
 
- @media (max-width: 850px) and (min-width: 550px)
+ @media (max-width: 850px) and (min-width: 650px)
 {
   .screenshots-grid
   {
