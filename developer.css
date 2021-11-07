@@ -2,7 +2,7 @@ html
 {
     font-family: 'Courier New', Courier, monospace;   
     background-repeat: no-repeat;
-    background: linear-gradient(to left top, blue, red) fixed;
+    background: linear-gradient(to left top, blue, rgb(228, 20, 217)) fixed;
 }
 
 /* developer description section*/
