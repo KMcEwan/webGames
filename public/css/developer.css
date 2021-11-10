@@ -64,7 +64,6 @@ body
   color: rgb(255, 0, 221);
 }
 
-
 .header
 {     
   min-height: 100px;   
@@ -127,7 +126,6 @@ body
   background-color: white;
   border-radius: 10px;
 }
-
   
 .button-container
 {
@@ -154,7 +152,8 @@ body
 .images{
   height: 720px;
   width: 7680px;
-  transition: transform 1.5s;
+  transition: 3s;
+  transition-timing-function: ease-out;  
 }
 
 .images img{
@@ -216,7 +215,7 @@ body
 }
 
 
-
+/* RESIZING */
 @media (max-width: 1650px)
 {
 img                                                                  /* The single image size */
@@ -268,7 +267,8 @@ img                                                                  /* The sing
   {                                
     height: 600px;  
     width: 4800px;                                  /* Number of images * the size of the image width */
-    transition: transform 1.5s;
+    transition: 3s;
+    transition-timing-function: ease-out;
   }
 }
 
@@ -381,7 +381,8 @@ img                                                                  /* The sing
   {                                
     height: 400px;  
     width: 2400px;                    /* Number of images * the size of the image width */
-    transition: transform 1.5s;
+    transition: 1s;
+    transition-timing-function: ease-out;
   }
 
 }
@@ -470,7 +471,8 @@ img                                                                  /* The sing
   {                                
     height: 100px;  
     width: 1200px;                    /* Number of images * the size of the image width */
-    transition: transform 1.5s;
+    transition: 1s;
+    transition-timing-function: ease-out;
   }
 }
 
