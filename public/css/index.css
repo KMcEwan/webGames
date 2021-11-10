@@ -217,16 +217,7 @@ footer
       font-size:  0.7em;
   }
 
-  .navbar
-  {
-    flex-direction: column;
-    align-items: center;
-  }
-  .nav-container 
-  {
-    flex-direction: column;
-    align-items: center;
-  }
+  
 
   #about-image
   {
@@ -239,37 +230,6 @@ footer
     grid-auto-rows: 100px;
   }
 
-  .navbar
-  {
-    flex-direction: column;
-    align-items: center;
-    display: none;
-    padding-top: 10%;
-    padding-right: 0%;
-  }
-  .nav-container 
-  {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .burger-menu
-  {
-    display: flex;
-  }
-
-  .navbar.active
-  {
-    display: flex;
-  }
-
-  .nav-container 
-  {   
-    position: absolute;
-    margin: 20px;
-    width: 90%;
-    z-index: 50; 
-  }  
 }
 
 @media (max-width: 1050px) and (min-width: 850px)
@@ -324,18 +284,18 @@ footer
 }
 
 @media (max-width: 350px)
-  {
-    h1 
-    {
-      font-size:  0.5em;
-    }
+{
+  h1 
+ {
+    font-size:  0.5em;
+ }
 
-    #about-image
-    {
-      display: none;
-    } 
+  #about-image
+ {
+    display: none;
+ } 
   
-    .header-image
+ .header-image
   {
     min-height: 200px;   
     background-position: center;
@@ -350,38 +310,47 @@ footer
     grid-template-columns: repeat(1, 1fr);
     grid-auto-rows: 100px;
   }
+}
 
-  .navbar
-  {
+
+ @media(max-width: 760px)
+{
+ .navbar
+ {
     flex-direction: column;
     align-items: center;
     display: none;
     padding-top: 10%;
     padding-right: 0%;
+   
   }
+
   .nav-container 
   {
     flex-direction: column;
     align-items: center;
-  }
-
-  .burger-menu
-  {
-    display: flex;
-  }
-
-  .navbar.active
-  {
-    display: flex;
-  }
-
-  .nav-container 
-  {   
     position: absolute;
     margin: 20px;
     width: 90%;
     z-index: 50; 
-  }  
-
+    opacity: 0.9;
+    background-color: black;
   }
+  
+  .burger-menu
+  {
+    display: flex;    
+  }
+  
+  .navbar.active
+  {
+    display: flex;
+ }
 
+  .navbar a:hover 
+  {
+    background-color: #ddd;
+    color: rgb(0, 37, 248);
+    text-shadow: 5px 5px 5px rgb(0, 2, 5);
+  }
+}

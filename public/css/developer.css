@@ -47,8 +47,9 @@ body
   text-shadow: 2px 2px 2px rgb(0, 2, 5);
   padding-left: 5%;
   padding-right: 10%;
-  font-size: 18px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.1em;
 }
 
 .About-me a
@@ -271,47 +272,52 @@ img                                                                  /* The sing
   }
 }
 
-@media (max-width: 1050px)
+@media (max-width: 650px) and (min-width: 350px)
 {
   h1 
- {
-  font-size:  0.5em;
-  }
-
-  .navbar
   {
-   flex-direction: column;
-   align-items: center;
-   display: none;
-   padding-top: 10%;
-   padding-right: 0%;
-  }
-
-  .nav-container 
-  {
-   flex-direction: column;
-   align-items: center;
-  }
-  
-  .burger-menu
-  {
-   display: flex;
-  }
-  
-  .navbar.active
-  {
+   font-size:  0.5em;
+   }
+ 
+   .navbar
+   {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding-top: 10%;
+    padding-right: 0%;
+   }
+ 
+   .nav-container 
+   {
+    flex-direction: column;
+    align-items: center;
+   }
+   
+   .burger-menu
+   {
     display: flex;
-  }
-  
-  .nav-container 
-  {   
-    position: absolute;
-    margin: 20px;
-    width: 90%;
-    z-index: 50; 
-    background-color: black;
-  }  
+   }
+   
+   .navbar.active
+   {
+     display: flex;
+   }
+   
+   .nav-container 
+   {   
+     position: absolute;
+     margin: 20px;
+     width: 90%;
+     z-index: 50; 
+     background-color: black;
+   }  
+ 
+}
 
+@media (max-width: 1050px)
+{
+  
 /* Student description section*/
   .developer-section
   {
@@ -378,27 +384,156 @@ img                                                                  /* The sing
     transition: transform 1.5s;
   }
 
-  .button-container{
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  .button-container a{
+}
+
+
+@media (max-width: 350px)
+  {
+    h1 
+    {
+      font-size:  0.5em;
+    }
+}
+
+@media (max-width: 1050px)
+{
+  .button-container a
+  {
     display: inline-block;
-    border-radius: 50%;
-    width:15px;
-    height: 15px;
+    border-radius: 10%;
+    width:27px;
+    height: 8px;
     border: solid rgb(255, 255, 255) 2px;
-    box-sizing: border-box;
-    margin: 15px;
-    background-color: rgb(190, 0, 238);
+    box-sizing: border-box;                                   /* Includes the padding in the box size */
+    margin: 0px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .button-container a:hover
+  {
+    background-color: #ff00dd;
+    border: none;
+    width:20px;
+    height: 8px;
+    border: solid rgb(255, 255, 255) 2px;
+  }
+}
+
+@media (max-width: 500px)
+{
+  img                                                       /* The single image size */
+  {
+    float: left;
+    width: 200px;
+    height: 100px; 
+  }
+
+  #slider-image1:target ~.images
+  {
+    transform: translateX(0);
   }
   
-  .button-container a:hover{
-    background-color: #0026ff;
-    border: none;
-    width: 20px;
-    height: 20px;
-    border: solid rgb(255, 255, 255) 2px;
+  #slider-image2:target ~.images
+  {
+    transform: translateX(-200px);
+  }
+  
+  #slider-image3:target ~.images
+  {
+    transform: translateX(-400px);
+  }
+  
+  #slider-image4:target ~.images
+  {
+    transform: translateX(-600px);
+  }
+  
+  #slider-image5:target ~.images
+  {
+    transform: translateX(-800px);
+  }
+  
+  #slider-image6:target ~.images
+  {
+    transform: translateX(-1000px);
+  }
+
+  .slider
+  {
+    width:200px;
+    height: 100px;
+    overflow: hidden;
+    margin: auto;
+  }
+  
+  .images
+  {                                
+    height: 100px;  
+    width: 1200px;                    /* Number of images * the size of the image width */
+    transition: transform 1.5s;
+  }
+}
+
+@media(max-width: 760px)
+{
+ .navbar
+ {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding-top: 10%;
+    padding-right: 0%;
+   
+  }
+
+  .nav-container 
+  {
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    margin: 20px;
+    width: 90%;
+    z-index: 50; 
+    opacity: 0.9;
+    background-color: black;
+  }
+  
+  .burger-menu
+  {
+    display: flex;    
+  }
+  
+  .navbar.active
+  {
+    display: flex;
+ }
+
+  .navbar a:hover 
+  {
+    background-color: #ddd;
+    color: rgb(0, 37, 248);
+    text-shadow: 5px 5px 5px rgb(0, 2, 5);
+  }
+}
+
+@media (max-width: 600px)
+{
+  #developer-title
+  {
+    color: rgb(255, 255, 255);
+    text-shadow: 5px 5px rgb(0, 0, 0);
+    font-size: 24px;
+  }
+
+  .About-me > h2
+  {
+    padding-left: 5%;
+    color: white;
+    font-size: 24px;
+  }
+
+  .About-me
+  {
+    font-size: 20px;
   }
 }
