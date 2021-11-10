@@ -28,6 +28,21 @@ html
   text-shadow: 5px 5px 5px rgb(248, 248, 248);  
 }
 
+.About-me > h2
+{
+  padding-left: 5%;
+  color: white;
+}
+
+.About-me
+{
+  color: white;
+  text-shadow: 2px 2px 2px rgb(0, 2, 5);
+  padding-left: 5%;
+  padding-right: 10%;
+}
+
+
 
 .header
 {     
@@ -93,74 +108,31 @@ html
 }
 
   
-/* .pic-ctn {
-  width: 100vw;
-  height: 200px;
-}
-
-@keyframes display {
-  0% {
-    transform: translateX(200px);
-    opacity: 0;
-  }
-  10% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  20% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  30% {
-    transform: translateX(-200px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(-200px);
-    opacity: 0;
-  }
-}
-
-.pic-ctn {
+.button-container
+{
+  top: -20px;
   position: relative;
-  width: 100vw;
-  height: 300px;
-  margin-top: 15vh;
 }
 
-.pic-ctn > img {
-  position: absolute;
-  top: 0;
-  left: calc(50% - 100px);
-  opacity: 0;
-  animation: display 10s infinite;
+.slider-button
+{
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  background-color: rgb(225, 0, 255);
 }
-
-img:nth-child(2) {
-  animation-delay: 2s;
-}
-img:nth-child(3) {
-  animation-delay: 4s;
-}
-img:nth-child(4) {
-  animation-delay: 6s;
-}
-img:nth-child(5) {
-  animation-delay: 8s;
-} */
-
-
 
 .slider{
-  width:800px;
-  height: 600px;
+  width:1280px;
+  height: 720px;
   overflow: hidden;
   margin: auto;
 }
 
 .images{
-  height: 600px;
-  width: 3200px;
+  height: 720px;
+  width: 7680px;
   transition: transform 1.5s;
 }
 
@@ -169,66 +141,115 @@ img:nth-child(5) {
 }
 
 .button-container{
-  margin-top: 10px;
+  margin-top: 30px;
   text-align: center;
 }
 
 .button-container a{
   display: inline-block;
-  border-radius: 30%;
-  width:15px;
-  height: 15px;
-  border: solid rgb(0, 25, 252) 2px;
+  border-radius: 50%;
+  width:20px;
+  height: 20px;
+  border: solid rgb(255, 255, 255) 2px;
   box-sizing: border-box;
   margin: 20px;
-  background-color: rgb(234, 0, 255);
+  background-color: rgb(190, 0, 238);
 }
 
-.button-container a:hover
-{
-  background-color: #001aff;
+.button-container a:hover{
+  background-color: #0026ff;
   border: none;
+  width:30px;
+  height: 30px;
+  border: solid rgb(255, 255, 255) 2px;
 }
 
-#slider-image1:target ~.images{
+#slider-image1:target ~.images
+{
   transform: translateX(0);
 }
 
-#slider-image2:target ~.images{
-  transform: translateX(-800px);
+#slider-image2:target ~.images
+{
+  transform: translateX(-1280px);
 }
 
-#slider-image3:target ~.images{
-  transform: translateX(-1600px);
+#slider-image3:target ~.images
+{
+  transform: translateX(-2560px);
 }
 
-#slider-image4:target ~.images{
-  transform: translateX(-2400px);  
+#slider-image4:target ~.images
+{
+  transform: translateX(-3840px);
 }
 
-@keyframes display {
-  0% {
-    transform: translateX(200px);
-    opacity: 0;
+#slider-image5:target ~.images
+{
+  transform: translateX(-5120px);
+}
+
+#slider-image6:target ~.images
+{
+  transform: translateX(-6400px);
+}
+
+
+
+@media (max-width: 1350px)
+{
+img                                                       /* The single image size */
+  {
+    float: left;
+    width: 800px;
+    height: 600px; 
   }
-  10% {
+
+  #slider-image1:target ~.images
+  {
     transform: translateX(0);
-    opacity: 1;
   }
-  20% {
-    transform: translateX(0);
-    opacity: 1;
+  
+  #slider-image2:target ~.images
+  {
+    transform: translateX(-800px);
   }
-  30% {
-    transform: translateX(-200px);
-    opacity: 0;
+  
+  #slider-image3:target ~.images
+  {
+    transform: translateX(-1600px);
   }
-  100% {
-    transform: translateX(-200px);
-    opacity: 0;
+  
+  #slider-image4:target ~.images
+  {
+    transform: translateX(-2400px);
+  }
+  
+  #slider-image5:target ~.images
+  {
+    transform: translateX(-3200px);
+  }
+  
+  #slider-image6:target ~.images
+  {
+    transform: translateX(-4000px);
+  }
+
+  .slider
+  {
+    width:800px;
+    height: 600px;
+    overflow: hidden;
+    margin: auto;
+  }
+  
+  .images
+  {                                
+    height: 600px;  
+    width: 4000px;
+    transition: transform 1.5s;
   }
 }
-
 
 @media (max-width: 850px)
 {
