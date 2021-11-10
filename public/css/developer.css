@@ -40,8 +40,20 @@ html
   text-shadow: 2px 2px 2px rgb(0, 2, 5);
   padding-left: 5%;
   padding-right: 10%;
+  font-size: 18px;
 }
 
+.About-me a
+{
+  text-decoration: none;
+  color: rgb(182, 182, 182);
+}
+
+.About-me a:hover
+{
+  font-size: 20px;
+  color: rgb(255, 0, 221);
+}
 
 
 .header
@@ -198,7 +210,7 @@ html
 
 @media (max-width: 1350px)
 {
-img                                                       /* The single image size */
+img                                                                  /* The single image size */
   {
     float: left;
     width: 800px;
@@ -246,7 +258,7 @@ img                                                       /* The single image si
   .images
   {                                
     height: 600px;  
-    width: 4000px;
+    width: 4800px;                                  /* Number of images * the size of the image width */
     transition: transform 1.5s;
   }
 }
@@ -306,4 +318,79 @@ img                                                       /* The single image si
     text-shadow: 5px 5px 5px rgb(0, 2, 5);
   }
 
+  img                                                       /* The single image size */
+  {
+    float: left;
+    width: 400px;
+    height: 300px; 
+  }
+
+  #slider-image1:target ~.images
+  {
+    transform: translateX(0);
+  }
+  
+  #slider-image2:target ~.images
+  {
+    transform: translateX(-400px);
+  }
+  
+  #slider-image3:target ~.images
+  {
+    transform: translateX(-800px);
+  }
+  
+  #slider-image4:target ~.images
+  {
+    transform: translateX(-1200px);
+  }
+  
+  #slider-image5:target ~.images
+  {
+    transform: translateX(-1600px);
+  }
+  
+  #slider-image6:target ~.images
+  {
+    transform: translateX(-2000px);
+  }
+
+  .slider
+  {
+    width:400px;
+    height: 300px;
+    overflow: hidden;
+    margin: auto;
+  }
+  
+  .images
+  {                                
+    height: 400px;  
+    width: 2400px;                    /* Number of images * the size of the image width */
+    transition: transform 1.5s;
+  }
+
+  .button-container{
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .button-container a{
+    display: inline-block;
+    border-radius: 50%;
+    width:15px;
+    height: 15px;
+    border: solid rgb(255, 255, 255) 2px;
+    box-sizing: border-box;
+    margin: 15px;
+    background-color: rgb(190, 0, 238);
+  }
+  
+  .button-container a:hover{
+    background-color: #0026ff;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border: solid rgb(255, 255, 255) 2px;
+  }
 }
