@@ -47,6 +47,7 @@ body
   padding-left: 0%;
   padding-right: 0%;
   font-size: 20px;
+  text-shadow: 0.5px 0.5px rgb(0, 0, 0);
 }
 
 /*TESTING */
@@ -62,7 +63,7 @@ body
 
 
 
-#design-reverse
+/* #design-reverse
 {
   color: white;
   width: 100%;
@@ -72,7 +73,7 @@ body
   padding-left: 10%;
   padding-right: 10%;
   font-size: 20px;
-}
+} */
 
 /* END TESTING */
 
@@ -87,6 +88,7 @@ body
   padding-left: 10%;
   padding-right: 10%;
   font-size: 20px;
+  text-shadow: 0.5px 0.5px rgb(0, 0, 0);
 }
 
 /* Non - reverse section titles*/

@@ -2,7 +2,7 @@ html
 {
     font-family: 'Courier New', Courier, monospace;   
     background-repeat: no-repeat;
-    background: linear-gradient(to left top, blue, rgb(228, 20, 217)) fixed;
+    background: linear-gradient(to left top, rgb(20, 9, 41), rgb(54, 8, 52)) fixed;
 }
 
 /* developer description section*/
@@ -22,10 +22,10 @@ html
 /* Title for developer*/
 #developer-title
 {
-  color: rgb(58, 56, 179);
-  text-shadow: 0.5px 0.5px rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-shadow: 5px 5px rgb(0, 0, 0);
   font-size: xx-large;
-  text-shadow: 5px 5px 5px rgb(248, 248, 248);  
+  
 }
 
 .About-me > h2
