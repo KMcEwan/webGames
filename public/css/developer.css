@@ -2,7 +2,14 @@ html
 {
     font-family: 'Courier New', Courier, monospace;   
     background-repeat: no-repeat;
-    background: linear-gradient(to left top, rgb(20, 9, 41), rgb(54, 8, 52)) fixed;
+
+    background-color: black;
+}
+body
+{
+  width: 80%;
+  margin: auto;
+  background: linear-gradient(to left top, rgb(20, 9, 41), rgb(54, 8, 52)) fixed;
 }
 
 /* developer description section*/
@@ -41,6 +48,7 @@ html
   padding-left: 5%;
   padding-right: 10%;
   font-size: 18px;
+  line-height: 40px;
 }
 
 .About-me a
@@ -159,20 +167,20 @@ html
 
 .button-container a{
   display: inline-block;
-  border-radius: 50%;
-  width:20px;
-  height: 20px;
+  border-radius: 10%;
+  width:70px;
+  height: 8px;
   border: solid rgb(255, 255, 255) 2px;
-  box-sizing: border-box;
-  margin: 20px;
-  background-color: rgb(190, 0, 238);
+  box-sizing: border-box;                                   /* Includes the padding in the box size */
+  margin: 10px;
+  background-color: rgb(255, 255, 255);
 }
 
 .button-container a:hover{
-  background-color: #0026ff;
+  background-color: #ff00dd;
   border: none;
-  width:30px;
-  height: 30px;
+  width:50px;
+  height: 8px;
   border: solid rgb(255, 255, 255) 2px;
 }
 
@@ -208,7 +216,7 @@ html
 
 
 
-@media (max-width: 1350px)
+@media (max-width: 1650px)
 {
 img                                                                  /* The single image size */
   {
@@ -263,7 +271,7 @@ img                                                                  /* The sing
   }
 }
 
-@media (max-width: 850px)
+@media (max-width: 1050px)
 {
   h1 
  {
