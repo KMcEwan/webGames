@@ -3,6 +3,12 @@ html
     font-family: 'Courier New', Courier, monospace;
     background-color: black;    
 }
+
+@font-face {
+  font-family: CustomFont;
+  src: url('/public/assets/fonts/AstroSpace.ttf');
+}
+
 body
 {
   width: 80%;

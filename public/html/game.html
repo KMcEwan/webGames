@@ -2,8 +2,20 @@
 <html>
 <head>
     <script src="/public/js/phaser.min.js"></script>
+    <link rel="preload" as="font" href="/public/assets/fonts/AstroSpace.ttf" type="font/tff" />
     <link rel="stylesheet" href="/public/css/game.css">
-    <script src="/public/js/game.js"></script>
+    <script src="/public/js/phaser.min.js"></script>
+    <script src="/public/js/mainGame.js"></script>
+    <script src="/public/js/loader.js"></script>
+    <script src="/public/js/controls.js"></script>
+    <script src="/public/js/gameOver.js"></script>
+    <script src="/public/js/gameWon.js"></script>
+    <script src="/public/js/mainMenu.js"></script>
+
+    <div style="font-family: CustomFont; visibility: hidden">
+        .
+    </div>
+    
 </head>
 <body>
 
@@ -54,63 +66,45 @@
     <section id="game">
     <script>
 
-    var config = {
-        type: Phaser.AUTO,
-        scale:
-    {   
-        parent: 'game',
+var config = 
+{
+    type: Phaser.AUTO,      
+    width: 600,
+    height: 800, 
+    scale:
+    {   parent: 'game',             // same id as div element in html
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
-        width: 800,
-        height: 600
+        // width: 600,
+        // height: 800
     },
-        physics:
-        {
-            default: 'arcade',
-            arcade: {
-                gravity: { y: 200 }
-            }
-        },
-        scene:
-        {
-            preload: preload,
-            create: create
-        },
-       
-    };
 
-    var game = new Phaser.Game(config);
+    scene: [loader, mainMenu, controls, mainGame, gameOver, gameWon],
 
-    function preload ()
+    physics:
     {
-        this.load.setBaseURL('http://labs.phaser.io');
-
-        this.load.image('sky', 'assets/skies/space3.png');
-        this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-        this.load.image('red', 'assets/particles/red.png');
-    }
-
-    function create ()
-    {
-        
-        this.add.image(400, 300, 'sky');
-
-        var particles = this.add.particles('red');
-
-        var emitter = particles.createEmitter({
-            speed: 100,
-            scale: { start: 1, end: 0 },
-            blendMode: 'ADD'
-        });
-
-        var logo = this.physics.add.image(400, 100, 'logo');
-
-        logo.setVelocity(100, 200);
-        logo.setBounce(1, 1);
-        logo.setCollideWorldBounds(true);
-
-        emitter.startFollow(logo);
-    }
+        default: 'arcade',
+        arcade:
+        {
+            debug: false,
+            gravity: { y: 0 }
+        }
+    },
+    
+    
+   
+},
+player1,
+player2,
+building1,
+building2,
+building3,
+building4,
+building5,
+building6,
+ground,
+topGround,
+game = new Phaser.Game(config);
     </script>
 </section>
 </body>
