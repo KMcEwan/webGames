@@ -272,7 +272,7 @@ class mainGame extends Phaser.Scene
         this.casualtiesHealthBar.fillStyle(0x808080);
         this.casualtiesHealthBar.fillRoundedRect(255, 40, this.width, 10, 5);
         this.gameOverReason = "Too many casualties"
-        console.log(this.gameOverReason);
+        //console.log(this.gameOverReason);
      
         this.CasualiesText.setText('Casualties : ' + this.casualties + " K");
         console.log(this.percent);
@@ -284,7 +284,7 @@ class mainGame extends Phaser.Scene
         }
         else
         {
-            this.scene.start("gameOverKey", player1, player2, this.gameOverReason);
+            this.scene.start("gameOverKey", { keyDeath : this.gameOverReason});
             this.game.sound.stopAll();
         }
         

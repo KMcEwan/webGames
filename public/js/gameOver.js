@@ -1,8 +1,8 @@
 class gameOver extends Phaser.Scene
 {
-    constructor (player1, player2, gameOverReason)
+    constructor (player1, player2 )
     {
-        super({key: "gameOverKey", player1, player2, gameOverReason});
+        super({key: "gameOverKey", player1, player2});
     }
 
     preload()
@@ -10,9 +10,9 @@ class gameOver extends Phaser.Scene
 
     };
 
-    create()
+    create(gameOverReason)
     {
-        this.reason = gameOverReason;
+        this.reason = gameOverReason.keyDeath;
         console.log(this.reason);
 
 
