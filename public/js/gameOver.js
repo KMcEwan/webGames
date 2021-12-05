@@ -1,8 +1,8 @@
 class gameOver extends Phaser.Scene
 {
-    constructor (player1, player2)
+    constructor (player1, player2, gameOverReason)
     {
-        super({key: "gameOverKey", player1, player2});
+        super({key: "gameOverKey", player1, player2, gameOverReason});
     }
 
     preload()
@@ -12,9 +12,14 @@ class gameOver extends Phaser.Scene
 
     create()
     {
+        this.reason = gameOverReason;
+        console.log(this.reason);
+
+
         this.backgroundSun = this.add.image(300,400, 'backgroundSun');
         this.add.image(300, 400, 'background');  
         console.log("controls script");
+ 
 
         this.gameOver = this.add.text (config.width / 2 - 170, config.height / 2 - 300, 'GAME OVER', { font: '56px CustomFont', fill: '#e357ff' });
 
@@ -23,6 +28,8 @@ class gameOver extends Phaser.Scene
 
         this.playerOneScore.setText('P1 score : ' + player1.score);
         this.playerTwoScore.setText('P2 score : ' + player2.score);
+
+        
 
         const startButton = this.add.image(config.width / 2, config.height / 2 - 100, 'startButton');
         startButton.setInteractive();

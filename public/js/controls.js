@@ -12,7 +12,9 @@ class controls extends Phaser.Scene
 
     create()
     {
-        this.add.image(400, 300, 'background');  
+        this.add.image(300,400, 'backgroundSun');
+        this.add.image(300, 400, 'background');  
+        
         this.add.image(config.width / 2, config.height / 2 - 100, 'controls');
     
 

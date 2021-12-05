@@ -95,15 +95,9 @@ class mainGame extends Phaser.Scene
 
     create()
     {
-
-        /* TESTING PURPOSES ONLY */
-
-
-        /* TESTING PURPOSES ONLY END */
-
         this.scoreForHealSelf = 200;
         this.scoreForHealBoth = 300;
-      //  this.specialAbility1 = 300;
+
         this.gainLives = 600;
         this.specialAttack = 600;
         this.playerVelocity = 200;
@@ -115,10 +109,14 @@ class mainGame extends Phaser.Scene
         this.destroyAnimationRunning = false;
         this.destroyAnimationRunning2 = false;
         this.buildingName;
+        this.gameOverReason  = " Too many casualties";
+
+        this.casualties = 0;
+        this.casualtiesMax = 100;
        
-        const gameMusic = this.sound.add("mainGameMusic",{volume: 0.4});
+        //const gameMusic = this.sound.add("mainGameMusic",{volume: 0.4});
         //gameMusic.play();
-        this.sound.play("mainGameMusic");
+       // this.sound.play("mainGameMusic");
 
         this.thrustEffect = this.sound.add("thrust", {volume: 0.3});
         this.thrustEffect2 = this.sound.add("thrust", {volume: 0.3});                                               // Keep two audios, needed so one doesnt switch the other off.
@@ -225,8 +223,14 @@ class mainGame extends Phaser.Scene
         this.graphicsPlayerOneHealth = this.add.graphics();
         this.graphicsPlayerTwoHealth = this.add.graphics();
 
+
+        this.CasualiesText = this.add.text (230,20, 'Casualties : 0', { fontFamily: 'CustomFont', fill: '#df03fc'});
+        this.casualtiesHealthBar = this.add.graphics();
+
         this.setHealthbarPlayerOne();
         this.setHealthbarPlayerTwo();
+
+        this.setCasualties();
 
         this.player1Hearts = this.add.group({classType : Phaser.GameObjects.Image});
         this.player1Hearts.createMultiple
@@ -260,11 +264,38 @@ class mainGame extends Phaser.Scene
         this.shotFreqTwo = 300;
     };
 
+    setCasualties()
+    {
+        this.width = 100;
+        this.percent = Phaser.Math.Clamp(this.casualtiesMax, 0, 100) / 100;
+        this.casualtiesHealthBar.clear();
+        this.casualtiesHealthBar.fillStyle(0x808080);
+        this.casualtiesHealthBar.fillRoundedRect(255, 40, this.width, 10, 5);
+        this.gameOverReason = "Too many casualties"
+        console.log(this.gameOverReason);
+     
+        this.CasualiesText.setText('Casualties : ' + this.casualties + " K");
+        console.log(this.percent);
+
+        if(this.percent >= 0.1)
+        {
+            this.casualtiesHealthBar.fillStyle(0xff0000);
+            this.casualtiesHealthBar.fillRoundedRect(255,40, this.width * this.percent, 10, 5);  
+        }
+        else
+        {
+            this.scene.start("gameOverKey", player1, player2, this.gameOverReason);
+            this.game.sound.stopAll();
+        }
+        
+    }
+
     bulletHitBuilding(building, enemy)
     {
         enemy.body.setEnable(false);
         this.sound.play("enemyExplosion", {volume: 0.05});
         this.enemyCount--;
+
         enemy.play('destroyEnemy', true)
         enemy.once('animationcomplete', ()=> 
         {
@@ -317,6 +348,9 @@ class mainGame extends Phaser.Scene
            // building.anims.stop();
             console.log("BUILDING DESTROYED");
             this.sound.play("buildingExplosion", {volume: 0.5});
+            this.casualtiesMax -= 10;
+            this.casualties += 10;
+            this.setCasualties();
             building.play(this.buildingName, true)
             building.once('animationcomplete', ()=> 
             {
@@ -330,6 +364,8 @@ class mainGame extends Phaser.Scene
             // DESTROY BUILDING
         }
     }
+
+
     setHealthbarPlayerOne()
     {
         this.width = 100;
@@ -574,8 +610,10 @@ class mainGame extends Phaser.Scene
         if(this.inputKey.down.isDown)                                       
         {
             //this.lifeLost.play();     // player1.score = 1000;
-             player2.score = 1000;     
-             player1.score = 1000;    
+            //  player2.score = 1000;     
+            //  player1.score = 1000;    
+             player1.health = 100;
+             player2.health = 100;
              this.sound.play('lifeLost');       
             //player2.health -= 10;
            // this.scene.start("gameWonKey", player1, player2);
@@ -714,6 +752,12 @@ class mainGame extends Phaser.Scene
         enemy.play('destroyEnemy')
         enemy.destroy(true);        
         this.enemyCount--;
+        this.casualtiesMax -= 5;
+        this.casualties += 5;
+        this.setCasualties();
+
+        // this.casualtiesMax -= 10;
+        // this.casualties += 10;
     }
 
 
