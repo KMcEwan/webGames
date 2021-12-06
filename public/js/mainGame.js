@@ -107,8 +107,6 @@ class mainGame extends Phaser.Scene
         this.casualties = 0;
         this.casualtiesMax = 100;
        
-        //const gameMusic = this.sound.add("mainGameMusic",{volume: 0.4});
-        //gameMusic.play();
         this.sound.play("mainGameMusic",{volume: 0.2});
 
         this.thrustEffect = this.sound.add("thrust", {volume: 0.3});
@@ -334,11 +332,9 @@ class mainGame extends Phaser.Scene
                 //building.body.setEnable(false);
             }
 
-           // building.setActive(false).setVisible(false);
-            
+      
 
 
-           // building.anims.stop();
             console.log("BUILDING DESTROYED");
             this.sound.play("buildingExplosion", {volume: 0.5});
             this.casualtiesMax -= 10;
@@ -349,12 +345,8 @@ class mainGame extends Phaser.Scene
             {
                 building.destroy(); 
                 this.buildingCount--;
-            })
+            })      
 
-          
-
-            
-            // DESTROY BUILDING
         }
     }
 
@@ -531,9 +523,7 @@ class mainGame extends Phaser.Scene
 
     respawnPlayer2()
     {   
-        //console.log(this.deathAnimationRunning2);   
         this.deathAnimationRunning2 = true;
-        //console.log("respawning function");
         player2.play('deathFlash2', true)
         player2.once('animationcomplete', ()=> 
         {           
@@ -541,7 +531,6 @@ class mainGame extends Phaser.Scene
             player2.x = 400;
             player2.y = 500;       
             this.deathAnimationRunning2 = false;
-           // console.log(this.deathAnimationRunning2);   
         })
 
     

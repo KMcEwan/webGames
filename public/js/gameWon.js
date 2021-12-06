@@ -27,6 +27,10 @@ class gameWon extends Phaser.Scene
         const startButton = this.add.image(config.width / 2, config.height / 2 - 100, 'startButton');
         startButton.setInteractive();
 
+        const TitleMusic = this.sound.add("titleMusic", {volume: 0.06});                              // TURN BACK ON AFTER TESTING
+        TitleMusic.play();
+
+
         startButton.on('pointerdown', () => 
         {
             console.log('start button');

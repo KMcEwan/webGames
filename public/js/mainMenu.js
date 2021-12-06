@@ -25,17 +25,10 @@ class mainMenu extends Phaser.Scene
         controlButton.setInteractive();
 
         /* TITLE MUSIC CREATION */
-        const TitleMusic = this.sound.add("titleMusic", {volume: 0.06});                              // TURN BACK ON AFTER TESTING
+        const TitleMusic = this.sound.add("titleMusic", {volume: 0.06});                              
         TitleMusic.play();
 
         TitleMusic.loop = true;
-
-        // this.TitleMusic =  this.sound.add('titleMusic',
-        // {            
-        //     loop: true
-        // })
-
-
 
         /* ON START BUTTON CLICK */
         startButton.on('pointerdown', () => 
