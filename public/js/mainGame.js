@@ -103,11 +103,15 @@ class mainGame extends Phaser.Scene
         this.destroyAnimationRunning2 = false;
         this.buildingName;
         this.gameOverReason  = " Too many casualties";
+        this.musicOff = false;
 
         this.casualties = 0;
         this.casualtiesMax = 100;
        
-        this.sound.play("mainGameMusic",{volume: 0.2});
+        // this.sound.play("mainGameMusic",{volume: 0.2});
+
+        this.mainMusic = this.sound.add("mainGameMusic", {volume: 0.2});
+        this.mainMusic.play();
 
         this.thrustEffect = this.sound.add("thrust", {volume: 0.3});
         this.thrustEffect2 = this.sound.add("thrust", {volume: 0.3});                                               // Keep two audios, needed so one doesnt switch the other off.
@@ -248,7 +252,7 @@ class mainGame extends Phaser.Scene
         });
 
 
-
+        this.mKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);    
         this.lastFiredOne = new Date().getTime();
         this.shotFreqOne = 300;
         this.lastFiredTwo = new Date().getTime();
@@ -336,7 +340,7 @@ class mainGame extends Phaser.Scene
 
 
             console.log("BUILDING DESTROYED");
-            this.sound.play("buildingExplosion", {volume: 0.5});
+            this.sound.play("buildingExplosion", {volume: 0.1});
             this.casualtiesMax -= 10;
             this.casualties += 10;
             this.setCasualties();
@@ -583,6 +587,22 @@ class mainGame extends Phaser.Scene
     /* UPDATE FUNCTION START */
     update()
     { 
+        if(Phaser.Input.Keyboard.JustDown(this.mKey))                                       
+        {
+            console.log(this.musicOff);
+            if(!this.musicOff)
+            {
+                this.mainMusic.play();
+                this.musicOff = true;
+            }
+            else 
+            {
+                this.mainMusic.stop();
+                this.musicOff = false;
+            }
+        
+   
+        }
 
         if(this.buildingCount <= 0)
         {
@@ -590,13 +610,6 @@ class mainGame extends Phaser.Scene
             this.scene.start("gameOverKey", { keyDeath : this.gameOverReason}); 
             this.game.sound.stopAll();
         }
-        /* DEBUGGING USE ONLY */
-        if(this.inputKey.down.isDown)                                       
-        {
-            this.gameOverReason = "All players dead"
-            this.scene.start("gameOverKey", { keyDeath : this.gameOverReason}); 
-        }
-        /* DEBUGGING USE ONLY END */
         
         this.playerOneScore.setText('score : ' + player1.score);
         this.playerTwoScore.setText('score : ' + player2.score);
@@ -730,12 +743,9 @@ class mainGame extends Phaser.Scene
         enemy.play('destroyEnemy')
         enemy.destroy(true);        
         this.enemyCount--;
-        this.casualtiesMax -= 5;
-        this.casualties += 5;
+        this.casualtiesMax -= 1;
+        this.casualties += 1;
         this.setCasualties();
-
-        // this.casualtiesMax -= 10;
-        // this.casualties += 10;
     }
 
 
