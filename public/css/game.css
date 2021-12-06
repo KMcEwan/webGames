@@ -47,7 +47,7 @@ body
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 2vh;
   text-transform: uppercase;
 }
 
@@ -162,7 +162,7 @@ canvas
     }
 }
 
-@media(max-width: 760px)
+@media(max-width: 1000px)
 {
  .navbar
  {

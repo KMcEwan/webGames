@@ -104,7 +104,7 @@ body
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 2vh;
   text-transform: uppercase;
 }
   
@@ -287,40 +287,45 @@ img                                                                  /* The sing
    font-size:  0.5em;
    }
  
-   .navbar
-   {
-    flex-direction: column;
-    align-items: center;
-    display: none;
-    padding-top: 10%;
-    padding-right: 0%;
-   }
- 
-   .nav-container 
-   {
-    flex-direction: column;
-    align-items: center;
-   }
    
-   .burger-menu
-   {
+ 
+}
+
+@media(max-width: 1000px)
+{
+  .navbar
+  {
+   flex-direction: column;
+   align-items: center;
+   display: none;
+   padding-top: 10%;
+   padding-right: 0%;
+  }
+
+  .nav-container 
+  {
+   flex-direction: column;
+   align-items: center;
+  }
+  
+  .burger-menu
+  {
+   display: flex;
+  }
+  
+  .navbar.active
+  {
     display: flex;
-   }
-   
-   .navbar.active
-   {
-     display: flex;
-   }
-   
-   .nav-container 
-   {   
-     position: absolute;
-     margin: 20px;
-     width: 90%;
-     z-index: 50; 
-     background-color: black;
-   }  
- 
+  }
+  
+  .nav-container 
+  {   
+    position: absolute;
+    margin: 20px;
+    width: 90%;
+    z-index: 50; 
+    background-color: black;
+  }  
 }
 
 @media (max-width: 1050px)
