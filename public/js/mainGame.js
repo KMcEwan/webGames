@@ -39,17 +39,10 @@ class cannonLaser extends Phaser.Physics.Arcade.Sprite {
         this.body = this.scene.physics.add.sprite(xPos, yPos, key)
         this.scene.physics.world.enable(this);
         this.body.setVelocityY(-500);        
-       // console.log(playerKey);
+     
         
         this.player = playerKey;
-        //this.scene.physics.add.collider(this.body, this.scene.enemies, function (body, enemy) {this.bulletHitEnemy(enemy, playerKey)}, null, this);
-
         this.scene.physics.add.collider(this.body, this.scene.enemies, this.bulletHitEnemy, null, this);
-
-
-        //this.scene.physics.add.overlap(building1, this.scene.enemies, this.bulletHitEnemy, null, this);       // bring back in when buildings added back in
-
-
         this.scene.physics.add.overlap(this.body, topGround, this.laserOutOfScreen, null, this);
     }
 
@@ -58,7 +51,7 @@ class cannonLaser extends Phaser.Physics.Arcade.Sprite {
     {     
         laser.destroy(true);
         enemy.body.setEnable(false);
-        this.scene.sound.play("enemyExplosion", {volume: 0.05});
+        this.scene.sound.play("enemyExplosion", {volume: 0.02});
         enemy.play('destroyEnemy', true)
         enemy.once('animationcomplete', ()=> 
         {
@@ -116,11 +109,11 @@ class mainGame extends Phaser.Scene
        
         //const gameMusic = this.sound.add("mainGameMusic",{volume: 0.4});
         //gameMusic.play();
-       // this.sound.play("mainGameMusic");
+        this.sound.play("mainGameMusic",{volume: 0.2});
 
         this.thrustEffect = this.sound.add("thrust", {volume: 0.3});
         this.thrustEffect2 = this.sound.add("thrust", {volume: 0.3});                                               // Keep two audios, needed so one doesnt switch the other off.
-        this.explosionSound = this.sound.add("enemyExplosion", {volume: 0.3});
+        this.explosionSound = this.sound.add("enemyExplosion", {volume: 0.02});
         
  
      
@@ -293,7 +286,7 @@ class mainGame extends Phaser.Scene
     bulletHitBuilding(building, enemy)
     {
         enemy.body.setEnable(false);
-        this.sound.play("enemyExplosion", {volume: 0.05});
+        this.sound.play("enemyExplosion", {volume: 0.02});
         this.enemyCount--;
 
         enemy.play('destroyEnemy', true)
@@ -583,7 +576,7 @@ class mainGame extends Phaser.Scene
 
         player.health -= 10;
         this.enemyCount--;
-        this.sound.play("enemyExplosion", {volume: 0.05});
+        this.sound.play("enemyExplosion", {volume: 0.02});
         //enemy.play('destroyEnemy');
         enemy.destroy(true);      
         if(player == player1)

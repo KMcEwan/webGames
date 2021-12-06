@@ -39,7 +39,7 @@ class loader extends Phaser.Scene
      
         /* AUDIO - MUSIC */
         this.load.audio("titleMusic", '/public/assets/Audio/music/music1.mp3');
-       // this.load.audio("mainGameMusic", '/public/assets/Audio/music/mainGameMusic.mp3');
+        this.load.audio("mainGameMusic", '/public/assets/Audio/music/mainGameMusic.mp3');
 
         /* SOUND EFFECTS */
         this.load.audio("thrust", '/public/assets/Audio/effects/thrustSoundEffect.mp3');
