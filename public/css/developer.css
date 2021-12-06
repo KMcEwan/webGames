@@ -26,8 +26,14 @@ body
   font-size: 30px;
   text-transform: uppercase;
   text-shadow: 5px 5px 5px rgb(0, 2, 5);
+
 }
 
+.developer-section a
+{
+  
+  color: rgb(255, 255, 255);
+}
 /* Title for developer*/
 #developer-title
 {

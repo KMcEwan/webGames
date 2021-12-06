@@ -271,7 +271,7 @@ class mainGame extends Phaser.Scene
         this.casualtiesHealthBar.clear();
         this.casualtiesHealthBar.fillStyle(0x808080);
         this.casualtiesHealthBar.fillRoundedRect(255, 40, this.width, 10, 5);
-        this.gameOverReason = "Too many casualties"
+
         //console.log(this.gameOverReason);
      
         this.CasualiesText.setText('Casualties : ' + this.casualties + " K");
@@ -283,7 +283,7 @@ class mainGame extends Phaser.Scene
             this.casualtiesHealthBar.fillRoundedRect(255,40, this.width * this.percent, 10, 5);  
         }
         else
-        {
+        {   this.gameOverReason = "Too many casualties"
             this.scene.start("gameOverKey", { keyDeath : this.gameOverReason});
             this.game.sound.stopAll();
         }
@@ -471,7 +471,8 @@ class mainGame extends Phaser.Scene
     {
         if(!player1.isAlive && !player2.isAlive)
         {
-            this.scene.start("gameOverKey", player1, player2);
+            this.gameOverReason = "All players dead";
+            this.scene.start("gameOverKey", { keyDeath : this.gameOverReason});
             this.game.sound.stopAll();
         }
     }
@@ -603,20 +604,15 @@ class mainGame extends Phaser.Scene
 
         if(this.buildingCount <= 0)
         {
-            this.scene.start("gameOverKey", player1, player2);
+            this.gameOverReason = "All buildings destroyed"
+            this.scene.start("gameOverKey", { keyDeath : this.gameOverReason}); 
             this.game.sound.stopAll();
         }
         /* DEBUGGING USE ONLY */
         if(this.inputKey.down.isDown)                                       
         {
-            //this.lifeLost.play();     // player1.score = 1000;
-            //  player2.score = 1000;     
-            //  player1.score = 1000;    
-             player1.health = 100;
-             player2.health = 100;
-             this.sound.play('lifeLost');       
-            //player2.health -= 10;
-           // this.scene.start("gameWonKey", player1, player2);
+            this.gameOverReason = "All players dead"
+            this.scene.start("gameOverKey", { keyDeath : this.gameOverReason}); 
         }
         /* DEBUGGING USE ONLY END */
         
