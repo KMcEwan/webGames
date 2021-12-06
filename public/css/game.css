@@ -92,10 +92,23 @@ body
   
 }
 
+.rulesContainer
+{
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(360deg, rgb(36, 0, 24) 20%, rgb(112, 9, 121) 35%, rgb(153, 0, 199) 100%);
+    color: rgb(255, 255, 255);
+    font-size: 2vh;
+    
+  
+}
+
 #controls
 {
     color: rgba(193, 237, 250, 0.959);
-    text-shadow: 1px 1px rgb(0, 0, 0);
+    text-shadow: 0.5px 0.5p rgb(0, 0, 0);
     width: 70%;
     margin: 2%;
     margin-left: 0%;
@@ -104,6 +117,21 @@ body
     display: flex;
     justify-content:space-between;
     font-weight: bold;        
+}
+
+#rules
+{
+    color: rgba(5, 3, 126, 0.959);
+    text-shadow: 0.5px 0.5px rgb(0, 0, 0);
+    width: 100%;
+    margin: 2%;
+    margin-left: 0%;
+    margin-right: 0%;
+    padding-left: 10%;
+    padding-right: 20%;
+    display: flex;
+    justify-content:space-between;
+    font-weight: bold;   
 }
 
 canvas 
