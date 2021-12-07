@@ -88,13 +88,13 @@ class mainGame extends Phaser.Scene
 
     create()
     {
-        this.scoreForHealSelf = 200;
-        this.scoreForHealBoth = 300;
+        this.scoreForHealSelf = 100;
+        this.scoreForHealBoth = 200;
 
-        this.gainLives = 600;
-        this.specialAttack = 600;
+        this.gainLives = 400;
+        this.specialAttack = 400;
         this.playerVelocity = 200;
-        this.combinedWinScore = 2500;
+        this.combinedWinScore = 4000;
         this.thrustPlayingOne = false;
         this.thrustPlayingTwo = false;
         this.deathAnimationRunning = false;
@@ -768,7 +768,7 @@ class mainGame extends Phaser.Scene
             for (let k = 0; k < this.enemiesInScene; k++) 
             {
                 let x = Phaser.Math.Between(580, 20);   
-                let vel = Phaser.Math.Between(300, 10);   
+                let vel = Phaser.Math.Between(200, 10);   
                 this.enemy = new Enemy(this, x, 0, 'enemy');
                 this.enemy.play('flash');
                 this.add.existing(this.enemy);
@@ -785,7 +785,7 @@ class mainGame extends Phaser.Scene
             for (let k = 0; k < this.enemiesInScene; k++) 
             {
                 let x = Phaser.Math.Between(580, 20);   
-                let vel = Phaser.Math.Between(300, 10);   
+                let vel = Phaser.Math.Between(200, 10);   
                 this.enemy = new Enemy(this, x, 0, 'enemy');
                 this.enemy.play('flash');
                 this.add.existing(this.enemy);
@@ -802,7 +802,7 @@ class mainGame extends Phaser.Scene
             for (let k = 0; k < this.enemiesInScene; k++) 
             {
                 let x = Phaser.Math.Between(580, 20);   
-                let vel = Phaser.Math.Between(300, 10);   
+                let vel = Phaser.Math.Between(200, 10);   
                 this.enemy = new Enemy(this, x, 0, 'enemy');
                 this.enemy.play('flash');
                 this.add.existing(this.enemy);
