@@ -593,8 +593,7 @@ class mainGame extends Phaser.Scene
             if(!this.musicOff)
             {
                 this.mainMusic.play();
-                this.musicOff = true;
-                player1.score += 1000;
+                this.musicOff = true;        
             }
             else 
             {
