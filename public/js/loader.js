@@ -60,16 +60,12 @@ class loader extends Phaser.Scene
         this.load.audio("player1TeamLives", '/public/assets/Audio/effects/player1TeamLives.mp3');
         this.load.audio("player2LaserScan", '/public/assets/Audio/effects/player2LaserScan.mp3');
 
-
-      
-
-
-
-
         /* BUTTONS */
         this.load.image('startButton', '/public/assets/UI/startButton.png');
         this.load.image('controlButton', '/public/assets/UI/controlButton.png');
+        this.load.image('howTo', '/public/assets/UI/howTo.png');
         this.load.image('controls', '/public/assets/UI/controls.png');
+        this.load.image('howToPlay', '/public/assets/UI/howToPlay.png');
         this.load.text('font', '/public/assets/fonts/AstroSpace.ttf');
 
 

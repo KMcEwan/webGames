@@ -24,6 +24,10 @@ class mainMenu extends Phaser.Scene
         const controlButton = this.add.image(config.width / 2, config.height / 2 + 100, 'controlButton');
         controlButton.setInteractive();
 
+        /* CONTROL BUTTON CREATION */
+        const howToButton = this.add.image(config.width / 2, config.height / 2 + 300, 'howTo');
+        howToButton.setInteractive();
+
         /* TITLE MUSIC CREATION */
         const TitleMusic = this.sound.add("titleMusic", {volume: 0.06});                              
         TitleMusic.play();
@@ -44,6 +48,13 @@ class mainMenu extends Phaser.Scene
            console.log('controls button');
            this.scene.start("controlsKey");
         });
+
+        howToButton.on('pointerdown', () =>
+        {
+           console.log('controls button');
+           this.scene.start("howToKey");
+        });
+    
     
         
     };

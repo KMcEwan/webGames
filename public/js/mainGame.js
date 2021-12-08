@@ -116,8 +116,6 @@ class mainGame extends Phaser.Scene
         this.casualties = 0;
         this.casualtiesMax = 100;
        
-        // this.sound.play("mainGameMusic",{volume: 0.2});
-
         this.mainMusic = this.sound.add("mainGameMusic", {volume: 0.2});
         this.mainMusic.play();
 
