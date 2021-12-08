@@ -91,7 +91,7 @@ class mainGame extends Phaser.Scene
         this.scoreForHealSelf = 100;
         this.scoreForHealBoth = 200;
 
-        this.gainLives = 400;
+        this.gainLivesScore = 400;
         this.specialAttack = 400;
         this.playerVelocity = 200;
         this.combinedWinScore = 4000;
@@ -106,6 +106,9 @@ class mainGame extends Phaser.Scene
         this.musicOff = false;
         this.playerLostLife = false
         this.playerLostLife2 = false
+        this.healSelfAudio = false;
+        this.healBothAudio = false;
+        this.gainLifeAudio = false;
 
         this.casualties = 0;
         this.casualtiesMax = 100;
@@ -118,6 +121,8 @@ class mainGame extends Phaser.Scene
         this.thrustEffect = this.sound.add("thrust", {volume: 0.3});
         this.thrustEffect2 = this.sound.add("thrust", {volume: 0.3});                                               // Keep two audios, needed so one doesnt switch the other off.
         this.explosionSound = this.sound.add("enemyExplosion", {volume: 0.02});
+        this.player1LifeLost = this.sound.add("player1LifeLost", {volume: 10});
+        this.player2LifeLost = this.sound.add("player2LifeLost", {volume: 6});
         
  
      
@@ -372,7 +377,8 @@ class mainGame extends Phaser.Scene
         }
         else 
         {
-            this.lifeLost.play();
+            this.player1LifeLost.play();
+           // this.lifeLost.play();
             console.log(this.percent);
           
             player1.lives --;           
@@ -485,7 +491,7 @@ class mainGame extends Phaser.Scene
         }
         else
         {
-            this.lifeLost.play();
+            this.player2LifeLost.play();
             player2.lives --;
             this.setPlayers2Lives();
             this.playerLostLife2 = true;
@@ -600,15 +606,16 @@ class mainGame extends Phaser.Scene
             {
                 this.mainMusic.play();
                 this.musicOff = true;
+                player1.score += 1000;
             }
             else 
             {
                 this.mainMusic.stop();
                 this.musicOff = false;
-            }
-        
-   
+            }  
         }
+
+
 
         if(this.buildingCount <= 0)
         {
@@ -738,7 +745,7 @@ class mainGame extends Phaser.Scene
             this.laserEffect.stop();
             this.scene.start("gameWonKey", player1, player2);
         }
-
+        
         this.checkPlayersScore();
         
     }/* UPDATE FUNCTION END */
@@ -767,6 +774,11 @@ class mainGame extends Phaser.Scene
         {
             this.maxScore = player2.score;
         }
+
+        this.checkScoreForAudioReset();
+        this.checkScoreForAudio();
+     
+     
 
         if(this.maxScore >= 0 && this.maxScore < 300)
         {
@@ -821,20 +833,74 @@ class mainGame extends Phaser.Scene
 
     }
 
+    checkScoreForAudioReset()
+    {
+        if(player1.score < this.scoreForHealSelf)
+        {
+            this.healSelfAudio = false;
+        }
+
+        if(player1.score < this.scoreForHealBoth)
+        {
+            this.healBothAudio = false;
+        }
+
+        if(player1.score < this.gainLivesScore)
+        {
+            this.gainLifeAudio = false;
+        }
+    }
+
+    checkScoreForAudio()
+    {
+        if(player1.score >= this.scoreForHealSelf && player1.score < this.scoreForHealBoth && this.healSelfAudio == false)
+        {
+           
+            this.healSelfAudio = true;
+            console.log("HEAL SELF");
+        }
+        else
+        if(player1.score >= this.scoreForHealBoth && player1.score < this.gainLivesScore && this.healBothAudio == false)
+        {
+            this.healBothAudio = true;
+            console.log("HEAL BOTH");
+        }
+        else
+        if(player1.score >= this.gainLivesScore && this.gainLifeAudio == false)
+        {
+            this.gainLifeAudio = true;
+            console.log("GAIN LIFE");
+        }
+    }
+
+
+
+
+
     specialsPlayer1()
     {
         if(Phaser.Input.Keyboard.JustDown(this.specialAbility1))
         {
-            if(player1.score >= this.gainLives)
+            if(player1.score >= this.gainLivesScore)
             {
+                
+                if(player1.lives >=3 && player2.lives >= 3)
+                {
+                    return;
+                }
+
                 if(player1.lives < 3)
                 {
                     player1.lives++;
                 }
+                
                 if(player2.lives < 3)
                 {
                     player2.lives++;
                 }
+
+
+
                 this.gainLife.play();
                 player1.score -= this.specialAttack;
                 this.setPlayers1Lives();
@@ -847,11 +913,19 @@ class mainGame extends Phaser.Scene
         {
             if(player1.score >= this.scoreForHealSelf)
             {
-                player1.health = 100;
-                player1.score -= this.scoreForHealSelf;
-                this.setHealthbarPlayerOne();
-                this.setHealthbarPlayerTwo();
-                this.gainHealth.play();
+                if(player1.health < 100)
+                {
+                    player1.health = 100;
+                    player1.score -= this.scoreForHealSelf;
+                    this.setHealthbarPlayerOne();
+                    this.setHealthbarPlayerTwo();
+                    this.gainHealth.play();
+                }
+                else
+                {
+                    return;
+                }
+
             }     
         }
         else
@@ -859,6 +933,10 @@ class mainGame extends Phaser.Scene
         {
             if(player1.score >= this.scoreForHealBoth)
             {
+                if(player1.health >= 100 && player2.health >= 100)
+                {
+                    return;
+                }
                 player1.health = 100;
                 player2.health = 100;
                 player1.score -= this.scoreForHealBoth;

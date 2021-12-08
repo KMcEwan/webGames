@@ -51,6 +51,8 @@ class loader extends Phaser.Scene
         this.load.audio("gainHealth", '/public/assets/Audio/effects/gainHealth.mp3');
         this.load.audio("playerExplosion", '/public/assets/Audio/effects/shipExplosion.mp3');
         this.load.audio("buildingExplosion", '/public/assets/Audio/effects/buildingExplosion.mp3');
+        this.load.audio("player1LifeLost", '/public/assets/Audio/effects/player1.mp3');
+        this.load.audio("player2LifeLost", '/public/assets/Audio/effects/player2.mp3');
 
       
 
