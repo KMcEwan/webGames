@@ -37,7 +37,6 @@ class mainMenu extends Phaser.Scene
         /* ON START BUTTON CLICK */
         startButton.on('pointerdown', () => 
         {
-            console.log('start button');
             this.scene.start("gameKey");
             TitleMusic.stop();                                                                    // TURN BACK ON 
         });
@@ -45,13 +44,11 @@ class mainMenu extends Phaser.Scene
         /* ON CONTROL BUTTON CLICK */
         controlButton.on('pointerdown', () =>
         {
-           console.log('controls button');
            this.scene.start("controlsKey");
         });
 
         howToButton.on('pointerdown', () =>
         {
-           console.log('controls button');
            this.scene.start("howToKey");
         });
     

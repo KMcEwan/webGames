@@ -280,11 +280,8 @@ class mainGame extends Phaser.Scene
         this.casualtiesHealthBar.clear();
         this.casualtiesHealthBar.fillStyle(0x808080);
         this.casualtiesHealthBar.fillRoundedRect(255, 40, this.width, 10, 5);
-
-        //console.log(this.gameOverReason);
      
         this.CasualiesText.setText('Casualties : ' + this.casualties + " K");
-        console.log(this.percent);
 
         if(this.percent >= 0.1)
         {
@@ -350,10 +347,6 @@ class mainGame extends Phaser.Scene
                 //building.body.setEnable(false);
             }
 
-      
-
-
-            console.log("BUILDING DESTROYED");
             this.sound.play("buildingExplosion", {volume: 0.1});
             this.casualtiesMax -= 10;
             this.casualties += 10;
@@ -380,14 +373,10 @@ class mainGame extends Phaser.Scene
         if(this.percent >= .1)
         {
             this.drawPlayer1Health();
-            console.log(this.percent);
         }
         else 
         {
-            this.player1LifeLost.play();
-           // this.lifeLost.play();
-            console.log(this.percent);
-          
+            this.player1LifeLost.play();          
             player1.lives --;           
             this.setPlayers1Lives();
             this.playerLostLife = true;
@@ -416,14 +405,11 @@ class mainGame extends Phaser.Scene
 
     destroyPlayer1()
     {
-        console.log("Destroy enemy 1");
         this.playerExplosion.play();
         this.destroyAnimationRunning = true;
         player1.play('dead2', true)
         player1.once('animationcomplete', ()=> 
         {
-           console.log("TEST ANIMATIONS");
-            //player2.destroy(); 
             this.destroyAnimationRunning = false;
             player1.setActive(false).setVisible(false);
             player1.body.setEnable(false);
@@ -433,18 +419,16 @@ class mainGame extends Phaser.Scene
 
     respawnPlayer1()
     {   
-        console.log(this.deathAnimationRunning);   
+        player1.body.setEnable(false);
         this.deathAnimationRunning = true;
-        console.log("respawning function");
         player1.play('deathFlash', true)
         player1.once('animationcomplete', ()=> 
         {           
-            console.log("respawn");  
             player1.x = 200;
             player1.y = 500;       
             this.deathAnimationRunning = false;
-            console.log(this.deathAnimationRunning);   
             this.playerLostLife = false;
+            player1.body.setEnable(true);
         })
 
     
@@ -511,7 +495,6 @@ class mainGame extends Phaser.Scene
             }
             else
             {
-                console.log("DEAD");
                 player2.isAlive = false;
                 this.destroyPlayer2();
                 this.checkPlayersAlive();
@@ -528,13 +511,11 @@ class mainGame extends Phaser.Scene
 
     destroyPlayer2()
     {
-        console.log("Destroy enemy 2");
         this.playerExplosion.play();
         this.destroyAnimationRunning2 = true;
         player2.play('dead2', true)
         player2.once('animationcomplete', ()=> 
         {
-           console.log("TEST ANIMATIONS");
             //player2.destroy(); 
             this.destroyAnimationRunning2 = false;
             player2.setActive(false).setVisible(false);
@@ -545,15 +526,16 @@ class mainGame extends Phaser.Scene
 
     respawnPlayer2()
     {   
+        player2.body.setEnable(false);
         this.deathAnimationRunning2 = true;
         player2.play('deathFlash2', true)
         player2.once('animationcomplete', ()=> 
         {           
-            console.log("respawn");  
             player2.x = 400;
             player2.y = 500;       
             this.deathAnimationRunning2 = false;
             this.playerLostLife2 = false;
+            player2.body.setEnable(true);
         })
 
     
@@ -585,7 +567,7 @@ class mainGame extends Phaser.Scene
 
     enemyHitPlayer(player, enemy) 
     {      
-
+    
         player.health -= 10;
         this.enemyCount--;
         this.sound.play("enemyExplosion", {volume: 0.02});
@@ -608,13 +590,11 @@ class mainGame extends Phaser.Scene
     { 
         if(Phaser.Input.Keyboard.JustDown(this.mKey))                                       
         {
-            console.log(this.musicOff);
             if(!this.musicOff)
             {
                 this.mainMusic.play();
                 this.musicOff = true;
-                player1.score += 100; 
-                player2.score += 100;
+                player1.score += 1000;
             }
             else 
             {
@@ -867,21 +847,18 @@ class mainGame extends Phaser.Scene
         {
            
             this.healSelfAudio = true;
-            console.log("HEAL SELF");
             this.player1SelfHealAudio.play();
         }
         else
         if(player1.score >= this.scoreForHealBoth && player1.score < this.gainLivesScore && this.healBothAudio == false)
         {
             this.healBothAudio = true;
-            console.log("HEAL BOTH");
             this.player1TeamHealAudio.play();
         }
         else
         if(player1.score >= this.gainLivesScore && this.gainLifeAudio == false)
         {
             this.gainLifeAudio = true;
-            console.log("GAIN LIFE");
             this.player1TeamLivesAudio.play();
         }
     }
@@ -910,14 +887,12 @@ class mainGame extends Phaser.Scene
         {
            
             this.healSelfAudio2 = true;
-            console.log("HEAL SELF 2");
             this.player2SelfHealAudio.play();
         }
         else
         if(player2.score >= this.scoreForHealBoth && player2.score < this.gainLivesScore && this.healBothAudio2 == false)
         {
             this.healBothAudio2 = true;
-            console.log("HEAL BOTH 2");
             this.player2TeamHealAudio.play();
         }
         else
@@ -925,7 +900,6 @@ class mainGame extends Phaser.Scene
         {
             this.scanLaserAudio = true;
             this.player2LaserScanAudio.play();
-            console.log("SCAN LASER");
         }
     }
 
@@ -1006,8 +980,7 @@ class mainGame extends Phaser.Scene
     SpecialsPlayer2()
     {
         if(Phaser.Input.Keyboard.JustDown(this.specialAbility2))
-        {
-           // console.log("special attack");
+        { 
             if(player2.score >= this.specialAttack)
             {
                 this.DefenceLaser = this.createDefenceLaser(300, 800, 'laserDefence', this.DefenceLaser);
@@ -1057,13 +1030,13 @@ class mainGame extends Phaser.Scene
    
 
     movePlayer1()
-    {  
-     
+    {       
         if(Phaser.Input.Keyboard.JustDown(this.aKey))
         {          
             player1.setVelocityX(-this.playerVelocity);
             player1.play('player1MoveLeft');          
-            if (this.thrustPlayingOne !== true) {
+            if (this.thrustPlayingOne !== true)
+            {
                 this.thrustEffect.play();
                 this.thrustPlayingOne = true;             
             }           
@@ -1073,7 +1046,8 @@ class mainGame extends Phaser.Scene
         {
             player1.setVelocityX(this.playerVelocity);
             player1.play('player1MoveRight');
-            if (this.thrustPlayingOne !== true) {
+            if (this.thrustPlayingOne !== true) 
+            {
                 this.thrustEffect.play();
                 this.thrustPlayingOne = true;               
             }           
@@ -1088,8 +1062,8 @@ class mainGame extends Phaser.Scene
         {
             player2.setVelocityX(-this.playerVelocity);
             player2.play('player2MoveLeft');
-            if (this.thrustPlayingTwo !== true) {
-               // console.log(" THRUST TEST")
+            if (this.thrustPlayingTwo !== true) 
+            {
                 this.thrustEffect2.play();
                 this.thrustPlayingTwo = true;
             }           
@@ -1099,8 +1073,8 @@ class mainGame extends Phaser.Scene
         {
             player2.setVelocityX(this.playerVelocity);
             player2.play('player2MoveRight');
-            if (this.thrustPlayingTwo !== true) {
-               // console.log(" THRUST TEST")
+            if (this.thrustPlayingTwo !== true)
+             {
                 this.thrustEffect2.play();
                 this.thrustPlayingTwo = true;
             }           

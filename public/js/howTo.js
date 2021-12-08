@@ -31,7 +31,6 @@ class howTo extends Phaser.Scene
         /* ON START BUTTON CLICK */
         startButton.on('pointerdown', () => 
         {
-            console.log('start button');
             this.scene.start("gameKey");
             this.game.sound.stopAll();                                                             // TURN BACK ON 
         });
@@ -39,9 +38,7 @@ class howTo extends Phaser.Scene
         /* ON CONTROL BUTTON CLICK */
         controlButton.on('pointerdown', () =>
         {
-           console.log('controls button');
-           this.scene.start("controlsKey");
-           
+           this.scene.start("controlsKey");           
         });
     
         
