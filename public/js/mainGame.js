@@ -104,6 +104,8 @@ class mainGame extends Phaser.Scene
         this.buildingName;
         this.gameOverReason  = " Too many casualties";
         this.musicOff = false;
+        this.playerLostLife = false
+        this.playerLostLife2 = false
 
         this.casualties = 0;
         this.casualtiesMax = 100;
@@ -375,6 +377,7 @@ class mainGame extends Phaser.Scene
           
             player1.lives --;           
             this.setPlayers1Lives();
+            this.playerLostLife = true;
           
           
 
@@ -428,6 +431,7 @@ class mainGame extends Phaser.Scene
             player1.y = 500;       
             this.deathAnimationRunning = false;
             console.log(this.deathAnimationRunning);   
+            this.playerLostLife = false;
         })
 
     
@@ -484,6 +488,7 @@ class mainGame extends Phaser.Scene
             this.lifeLost.play();
             player2.lives --;
             this.setPlayers2Lives();
+            this.playerLostLife2 = true;
           
             if(player2.lives > 0)
             {
@@ -535,6 +540,7 @@ class mainGame extends Phaser.Scene
             player2.x = 400;
             player2.y = 500;       
             this.deathAnimationRunning2 = false;
+            this.playerLostLife2 = false;
         })
 
     
@@ -647,7 +653,7 @@ class mainGame extends Phaser.Scene
 
 
         // PLAYER 1 FIRING
-        if(this.Wkey.isDown && this.aKey.isDown)
+        if(this.Wkey.isDown && this.aKey.isDown && this.playerLostLife == false)
         {
             var currentTime = new Date().getTime();
             if (currentTime - this.lastFiredOne > this.shotFreqOne) {
@@ -658,7 +664,7 @@ class mainGame extends Phaser.Scene
             }
             player1.play('fireLeft1');
         }
-        else if (this.Wkey.isDown && this.dKey.isDown)
+        else if (this.Wkey.isDown && this.dKey.isDown && this.playerLostLife == false)
         {
             var currentTime = new Date().getTime();
             if (currentTime - this.lastFiredOne > this.shotFreqOne) {
@@ -668,7 +674,7 @@ class mainGame extends Phaser.Scene
             }
             player1.play('fireRight1');
         }
-        else if (this.Wkey.isDown && player1.isAlive)
+        else if (this.Wkey.isDown && player1.isAlive && this.playerLostLife == false)
         {
             var currentTime = new Date().getTime();
             if (currentTime - this.lastFiredOne > this.shotFreqOne) {
@@ -681,7 +687,7 @@ class mainGame extends Phaser.Scene
 
 
         //PLAYER 2 FIRING
-        if(this.inputKey.up.isDown && this.inputKey.left.isDown)
+        if(this.inputKey.up.isDown && this.inputKey.left.isDown &&  this.playerLostLife2 == false)
         {
             var currentTime = new Date().getTime();
             if (currentTime - this.lastFiredOne > this.shotFreqOne) {
@@ -692,7 +698,7 @@ class mainGame extends Phaser.Scene
             }
             player2.play('fireLeft2');
         }
-        else if (this.inputKey.up.isDown && this.inputKey.right.isDown)
+        else if (this.inputKey.up.isDown && this.inputKey.right.isDown && this.playerLostLife2 == false)
         {
             var currentTime = new Date().getTime();
             if (currentTime - this.lastFiredOne > this.shotFreqOne) {
@@ -703,7 +709,7 @@ class mainGame extends Phaser.Scene
             player2.play('fireRight2');
         }
         else
-        if(this.inputKey.up.isDown && player2.isAlive)
+        if(this.inputKey.up.isDown && player2.isAlive && this.playerLostLife2 == false)
         {
             var currentTime = new Date().getTime();
             if (currentTime - this.lastFiredTwo > this.shotFreqTwo) {
