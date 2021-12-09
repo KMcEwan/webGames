@@ -6,7 +6,7 @@ html
 
 @font-face {
   font-family: CustomFont;
-  src: url('/public/assets/fonts/AstroSpace.ttf');
+  src: url("/assets/fonts/AstroSpace.ttf");
 }
 
 body
@@ -149,6 +149,11 @@ canvas
         font-size:  0.5em;
     }
   
+    #rules
+    {
+      font-weight: normal; 
+      font-size: medium;      
+    }
     
     #controls
     {
@@ -187,6 +192,12 @@ canvas
      justify-content:space-between;
      font-weight: normal; 
      font-size: small;       
+    }
+
+    #rules
+    {
+      font-weight: normal; 
+      font-size: small;      
     }
 }
 
