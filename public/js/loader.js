@@ -1,3 +1,6 @@
+/* Code for the loading bar was taken from https://www.patchesoft.com/phaser-3-loading-screen*/
+
+
 class loader extends Phaser.Scene
 {
     constructor()
