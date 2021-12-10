@@ -6,7 +6,7 @@ html
 
 @font-face {
   font-family: CustomFont;
-  src: url("/assets/fonts/AstroSpace.ttf");
+  src: url("../assets/fonts/AstroSpace.ttf");
 }
 
 body
